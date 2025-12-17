@@ -1,8 +1,20 @@
 package VirtualThreads;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class VirtualThreadExample {
     static void main() throws InterruptedException{
-        
+
+        //approach 3 using try with resource
+
+        try (ExecutorService executorService = Executors.newVirtualThreadPerTaskExecutor()) {
+            executorService.submit(App::run);
+            executorService.submit(App::run);
+            executorService.submit(App::run);
+        }
+
+        /*
         //approach 2
         var factory = Thread.ofVirtual().name("virtual-", 0).factory();
 
@@ -15,7 +27,7 @@ public class VirtualThreadExample {
         t1.join();
         t2.join();
 
-        /*//approach 1
+        //approach 1
         var builder = Thread.ofVirtual().name("virtual-", 0);
         
         var t1 = builder.start(new App());
