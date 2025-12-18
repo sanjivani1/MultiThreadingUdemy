@@ -37,6 +37,7 @@ public class Main {
                 Thread.sleep(1000);
             }
 
+            assert philosophers != null;
             for(Philosopher philosopher : philosophers){
                 System.out.println(philosopher+" eat #"+philosopher.getEatingCounter()+" times!");
             }

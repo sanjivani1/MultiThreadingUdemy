@@ -54,10 +54,6 @@ public class Philosopher implements Runnable{
         Thread.sleep(random.nextInt(1000));
     }
 
-    public boolean isFull() {
-        return full;
-    }
-
     public void setFull(boolean full) {
         this.full = full;
     }

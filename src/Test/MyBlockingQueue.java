@@ -5,12 +5,12 @@ import ConcurrentCollections.BlockingQueueExample.BlockiingQueueExample;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class BlockingQueue {
+public class MyBlockingQueue {
 
     private Queue<Integer> blockingQueue;
     private int capacity;
 
-    public BlockingQueue(Queue<Integer> blockingQueue, int capacity){
+    public MyBlockingQueue(Queue<Integer> blockingQueue, int capacity){
         this.blockingQueue = blockingQueue;
         this.capacity = capacity;
     }
@@ -39,7 +39,7 @@ class Test{
     public static void main(String[] args) throws InterruptedException {
 
         Queue<Integer> q = new LinkedList<>();
-        BlockingQueue blockingQueue = new BlockingQueue(q, 5);
+        MyBlockingQueue blockingQueue = new MyBlockingQueue(q, 5);
 
         Thread t1 = new Thread(()-> {
              for(int i = 0; i < 50; i++){
